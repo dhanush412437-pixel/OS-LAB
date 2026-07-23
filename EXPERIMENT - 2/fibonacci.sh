@@ -1,15 +1,17 @@
-
 #!/bin/bash
 
-echo "ENTER THE NUMBER:"
+echo "ENTER THE LIMIT:"
 read n
 
-fact=1
+p=-1
+q=1
+i=1
 
-while [ $n -gt 1 ]
+while [ $i -le $n ]
 do
-    fact=$((fact * n))
-    n=$((n - 1))
+    r=$((p + q))
+    p=$q
+    q=$r
+    echo "$r"
+    i=$((i + 1))
 done
-
-echo "FACTORIAL OF THE GIVEN NUMBER IS $fact"
