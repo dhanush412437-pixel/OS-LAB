@@ -1,25 +1,9 @@
+#!/bin/bash
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
+exec 3< sample.txt
 
-int main()
-{
-    int fd;
+echo "File Opened Successfully"
 
-    fd = open("sample.txt", O_RDONLY);
+exec 3<&-
 
-    if (fd < 0)
-    {
-        printf("File Opening Failed\n");
-        return 1;
-    }
-
-    printf("File Opened Successfully\n");
-
-    close(fd);
-
-    printf("File Closed Successfully\n");
-
-    return 0;
-}
+echo "File Closed Successfully"
